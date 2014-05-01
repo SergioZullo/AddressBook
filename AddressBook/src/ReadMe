@@ -1,0 +1,19 @@
+The problem was simple to resolve and I didn't use others libraries to maintain the application simple and 
+clear to understand. 
+
+The first step was the read of the file, assuming that form, I put all information for each line
+in an object called Person. I tried to separate every information such as name and surname for 
+future developments and searched. All the Person object are saved in one ArrayList because it's easy to get information 
+and works faster and better than an array.
+
+1. To resolve the first issue I passing through the ArrayList and counted every Male person in the list.
+2. To resolve the second I used a new object that implements Comparator, with this class I could order 
+   the ArrayList with the method sort and get the first element i.e. the oldest.
+3. The Last one was easy to get but to be reusable I continued to work with the person object and after 
+   some controls, the procedure return the exact days of difference between two person.
+   
+Some tests that I did 
+
+File Empty - file not found 
+One Element in the file 
+Tested correctly the sort on the date
