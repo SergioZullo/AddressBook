@@ -1,7 +1,6 @@
 package it.addressbook.file;
 
 import it.addressbook.beans.Person;
-import it.addressbook.util.PersonUtil;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
