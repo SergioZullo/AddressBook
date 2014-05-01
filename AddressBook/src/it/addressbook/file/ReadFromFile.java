@@ -1,6 +1,7 @@
 package it.addressbook.file;
 
 import it.addressbook.beans.Person;
+import it.addressbook.util.PersonUtil;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -11,9 +12,13 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class ReadFromFile  {
+	
+	private static Logger LOGGER = Logger.getLogger(ReadFromFile.class.getName());
 	
 	public ArrayList<Person> getPersonFromFileAsList(String filename) {
 		ArrayList<Person> people = new ArrayList<Person>();
@@ -38,14 +43,14 @@ public class ReadFromFile  {
 				try {
 					date = sdf.parse(splitToComma[2].replaceAll("\\s+",""));
 				} catch (ParseException e) {
-					System.out.println("It was not possible catch the date");
+					LOGGER.log(Level.SEVERE, "It was not possible catch the date");
 				}
             	person.setDateOfBirth(date);
             	
             	people.add(person);
             }
         } catch (IOException e) {
-            System.out.println("Error of read ");
+        	LOGGER.log(Level.SEVERE, "Error of read");
         }
 		return people;
 	}

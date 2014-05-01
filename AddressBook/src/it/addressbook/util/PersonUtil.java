@@ -1,16 +1,23 @@
 package it.addressbook.util;
 
 import it.addressbook.beans.Person;
+import it.addressbook.start.Start;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class PersonUtil {
 	
+	private static Logger LOGGER = Logger.getLogger(PersonUtil.class.getName());
+	
+	
 	public int countMale(List<Person> people){
+		if (people == null)
+			return -1;
 		int count = 0;
 		for (Person person : people){
 		   if (Gender.Male.name().equals(person.getSex()))
@@ -20,6 +27,8 @@ public class PersonUtil {
 	};
 
 	public Person getOldestPerson(List<Person> people){
+		if (people == null)
+			return null;
 		Collections.sort(people, new PersonCompareByData());
 		return people.get(0);
 	}
